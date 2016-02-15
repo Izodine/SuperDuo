@@ -1,0 +1,161 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" tools:context="it.jaschke.alexandria.AddBook"
+    android:background="#ececec">
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginBottom="50dp">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_gravity="center_horizontal|top"
+            android:weightSum="1">
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:id="@+id/eancontainer"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:weightSum="1"
+                android:layout_margin="12dp">
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:minEms="@integer/ean_width"
+                    android:id="@+id/ean"
+                    android:saveEnabled="true"
+                    android:maxLength="@integer/ean_size"
+                    android:maxLines="1"
+                    android:hint="@string/input_hint"
+                    android:paddingRight="20dp"
+                    android:layout_weight="0.80" />
+
+                <Button
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/scan_button"
+                    android:id="@+id/scan_button"
+                    android:background="@drawable/rect_shadow"
+                    android:layout_weight=".20" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/bookTitle"
+                android:textSize="@dimen/head_line"
+                android:textIsSelectable="true"
+                android:textStyle="bold"
+                android:paddingRight="20dp"
+                android:layout_below="@+id/eancontainer"
+                android:layout_alignLeft="@+id/eancontainer"
+                android:layout_alignStart="@+id/eancontainer"
+                android:gravity="center" />
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/bookSubTitle"
+                android:layout_below="@+id/bookTitle"
+                android:maxLines="3"
+                android:ellipsize="end"
+                android:layout_alignLeft="@+id/eancontainer"
+                android:gravity="center"
+                android:textSize="15sp" />
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/authors"
+                android:gravity="center"
+                android:textSize="@dimen/small_fontsize"
+                android:layout_below="@+id/bookSubTitle"
+                android:layout_alignRight="@+id/eancontainer"
+                android:layout_alignEnd="@+id/eancontainer"
+                android:textStyle="italic" />
+
+            <ImageView
+                android:layout_width="128dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/bookCover"
+                android:contentDescription="@string/book_cover"
+                android:layout_alignTop="@+id/authors"
+                android:layout_alignLeft="@+id/eancontainer"
+                android:layout_alignStart="@+id/eancontainer"
+                android:adjustViewBounds="true"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/rect_shadow"
+                android:padding="4dp"
+                android:elevation="5dp" />
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/categories"
+                android:textSize="@dimen/small_fontsize"
+                android:layout_below="@+id/bookCover"
+                android:layout_marginTop="20dp"
+                android:layout_alignLeft="@+id/eancontainer"
+                android:layout_alignStart="@+id/eancontainer"
+                android:gravity="center" />
+
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="50dip"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_gravity="bottom"
+        android:padding="2dp"
+        android:layout_margin="2dp">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:text="@string/cancel_button"
+            android:layout_weight=".5"
+            style="?android:attr/buttonBarButtonStyle"
+            android:id="@+id/delete_button"
+            android:drawableLeft="@drawable/ic_action_discard"
+            android:visibility="invisible"
+            android:clickable="false"
+            android:enabled="true"
+            android:background="@drawable/rect_shadow"
+            android:padding="10dp"
+            android:layout_margin="2dp"
+            android:textColor="@android:color/black" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:text="@string/ok_button"
+            android:visibility="invisible"
+            android:layout_weight=".5"
+            android:id="@+id/save_button"
+            android:drawableLeft="@drawable/ic_action_accept"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_gravity="bottom"
+            android:background="@drawable/rect_shadow"
+            android:padding="10dp"
+            android:layout_margin="2dp"
+            android:textColor="@android:color/black" />
+
+    </LinearLayout>
+
+</FrameLayout>
